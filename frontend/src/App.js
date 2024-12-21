@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import config from "./config";
 import axios from "axios";
 import {
     Container,
@@ -26,8 +27,8 @@ function App() {
         setLoading(true); // Show loader when search is initiated
         try {
             const response = await axios.get(
-                `http://127.0.0.1:5000/api/listings?city=${filters.city}&min_price=${filters.minPrice}&max_price=${filters.maxPrice}`
-            );
+				`${config.API_BASE_URL}/api/listings?city=${filters.city}&min_price=${filters.minPrice}&max_price=${filters.maxPrice}`
+			);
             setListings(response.data.listings);
         } catch (error) {
             console.error("Error fetching listings:", error);
