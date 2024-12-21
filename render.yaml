@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: real-estate-analyzer
+    env: docker
+    dockerfilePath: backend/Dockerfile
+    plan: free
+    healthCheckPath: "/api/listings"  # Path to test if the service is running
